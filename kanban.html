@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>看板管理系统</title>
+    <link rel="stylesheet" href="css/kanban.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">看板管理系统</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="backBtn">返回主页</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="board-selector">
+            <div class="board-selector-content">
+                <h2 class="board-title" id="currentBoardTitle">我的看板</h2>
+                <div class="board-actions">
+                    <button class="btn btn-primary" id="createBoardBtn">新建看板</button>
+                    <button class="btn btn-secondary" id="manageBoardsBtn">管理看板</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="board-container" id="boardContainer">
+            <div class="lists-container" id="listsContainer"></div>
+            <button class="add-list-btn" id="addListBtn">
+                <span class="icon">+</span>
+                添加列表
+            </button>
+        </div>
+    </div>
+
+    <div class="modal" id="boardModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="boardModalTitle">新建看板</h3>
+                <button class="close-btn" id="closeBoardModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="boardNameInput">看板名称</label>
+                    <input type="text" id="boardNameInput" class="input" placeholder="输入看板名称">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelBoardBtn">取消</button>
+                <button class="btn btn-primary" id="saveBoardBtn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="listModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="listModalTitle">新建列表</h3>
+                <button class="close-btn" id="closeListModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="listNameInput">列表名称</label>
+                    <input type="text" id="listNameInput" class="input" placeholder="输入列表名称">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelListBtn">取消</button>
+                <button class="btn btn-primary" id="saveListBtn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="todoModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3 id="todoModalTitle">新建待办事项</h3>
+                <button class="close-btn" id="closeTodoModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="todoTitleInput">标题</label>
+                    <input type="text" id="todoTitleInput" class="input" placeholder="输入待办事项标题">
+                </div>
+                <div class="form-group">
+                    <label for="todoDescInput">描述</label>
+                    <textarea id="todoDescInput" class="textarea" placeholder="输入待办事项描述"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="todoDueDateInput">截止日期</label>
+                    <input type="date" id="todoDueDateInput" class="input">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelTodoBtn">取消</button>
+                <button class="btn btn-primary" id="saveTodoBtn">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="boardsManageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>管理看板</h3>
+                <button class="close-btn" id="closeBoardsManageModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="boards-list" id="boardsList"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="closeBoardsManageBtn">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="js/kanban.js"></script>
+</body>
+</html>
